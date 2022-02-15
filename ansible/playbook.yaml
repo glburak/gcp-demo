@@ -1,0 +1,6 @@
+
+--- 
+  - include: docker-install-playbook.yaml
+  - include: kafka.yaml
+  - include: zookeeper.yaml
+

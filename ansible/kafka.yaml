@@ -1,0 +1,12 @@
+---
+- hosts: 
+  - kafka
+  tasks:
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: ./kafka-docker-compose.yaml
+        dest: /srv/docker-compose.yaml
+    - name: kafka up
+      shell: | 
+        cd /server
+        docker-compose up -d

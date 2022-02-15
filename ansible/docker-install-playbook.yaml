@@ -1,0 +1,25 @@
+---
+- hosts: 
+  - kafka
+  - zookeeper
+
+  tasks:
+  - name: install-apt
+    apt: 
+      name:
+        - python2.7
+        - pip
+
+  - name: install-docker 
+    apt:
+      name: 
+        - docker.io
+      update_cache: yes
+
+  - name: docker-compose
+    shell: |
+      curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose 
+      chmod +x /usr/local/bin/docker-compose
+      mkdir -p /server
+
+

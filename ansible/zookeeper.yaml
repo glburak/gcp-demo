@@ -1,0 +1,13 @@
+---
+- hosts: 
+  - zookeeper
+  tasks:
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: ./zookeeper-docker-compose.yaml
+        dest: /server/docker-compose.yaml
+    - name: zookeeper up
+      shell: | 
+        cd /server
+        docker-compose up -d
+
